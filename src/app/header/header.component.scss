@@ -1,0 +1,34 @@
+.container{
+    color: rgb(76, 76, 76);
+}
+.carousel img {
+  width: 40em;
+  height: 25em;
+  max-width: 40em;
+  border: 0.1em solid transparent;
+  border-radius: 1em;
+  background: linear-gradient(to bottom, #ff5b52da 0%, #20c7ffe4 100%);
+  padding: 0.15em;
+}
+.carousel-inner img{
+  display: flex;
+  margin: auto;
+}
+.black{
+  background-color: rgb(76, 76, 76);
+  color: white;
+  width: 12em;
+  height: 2.3em;
+  border-radius: 0.2em;
+  &:hover{
+    filter: contrast(1.8);
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .carousel img{
+    height: 17em;
+  }
+
+}
