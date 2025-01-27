@@ -2,9 +2,9 @@
     color: rgb(76, 76, 76);
 }
 .carousel img {
-  width: 40em;
-  height: 25em;
-  max-width: 40em;
+  width: 38em;
+  height: 22em;
+  max-width: 37em;
   border: 0.1em solid transparent;
   border-radius: 1em;
   background: linear-gradient(to bottom, #ff5b52da 0%, #20c7ffe4 100%);
@@ -25,10 +25,23 @@
   }
 }
 
-@media (max-width: 1200px) {
-
-  .carousel img{
-    height: 17em;
+@media (max-width: 768px) {
+  .container{
+    margin-top: -2em!important;
   }
+  .carousel img{
+    display: flex;
+    height: 17em;
+    max-width: 30em;
+  }
+  .carousel-inner img{
+    margin: 0!important;
+}
 
+}
+
+@media (min-width: 768px) and (max-width: 992px){
+.carousel-inner img{
+    margin: 0!important;
+}
 }

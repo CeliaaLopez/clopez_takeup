@@ -1,0 +1,79 @@
+.first{
+  margin-top: 5em;
+  color: rgb(76, 76, 76);
+  img {
+    max-width: 6em;
+    width: 6em;
+  }
+  .share img{
+    width: 6em;
+    height: 6em;
+  }
+  .karaoke img {
+    height: 5em;
+  }
+  .title {
+    font-weight: bold;
+  }
+}
+.second{
+  margin-top: 9em!important;
+  color: rgb(76, 76, 76);
+  .buttom{
+    margin-top: 8em!important;
+  }
+  img {
+    width: 30em;
+    max-width: 30em;
+    max-height: 20em;
+    border-radius: 1em;
+
+  }
+  .title {
+    font-weight: bold;
+
+  }
+  .description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+.col-lg-7 {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  top: 84.2em;
+  left: 60%;
+  z-index: -1;
+}
+}
+@media (max-width: 768px) {
+  .second{
+    margin-top: 1em!important;
+  }
+  .second .buttom {
+     margin-top: 2em!important
+  }
+  .child {
+    position: relative!important;
+    top: 1em!important;
+    left: 0!important;
+  }
+  .carousel-inner img {
+    margin: 0!important;
+  }
+  .col-lg-5, .col-lg-7 {
+    width: 100%!important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .second, .buttom {
+    margin-top: 11em!important;
+  }
+  .child {
+    position: relative!important;
+  }
+}
