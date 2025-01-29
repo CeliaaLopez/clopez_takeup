@@ -1,0 +1,269 @@
+$generalColor: rgb(76, 76, 76);
+
+.logo img {
+  width: 2em;
+  height: 2em;
+}
+.black {
+  background-color: $generalColor;
+  color: white;
+  &:hover {
+    filter: contrast(1.8);
+  }
+}
+.btn-navbar {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+.navbar-brand img {
+  width: 2.2em;
+  height: 2.2em;
+}
+#inicio {
+  background-color: rgba(233, 232, 232, 0.932) !important;
+}
+.white:hover {
+  background-color: $generalColor;
+  filter: contrast(1.8);
+  color: white;
+}
+.container {
+  color: $generalColor;
+}
+.imgHeader img {
+  width: 50em;
+  height: 29em;
+  max-width: 50em;
+  border: 0.1em solid transparent;
+  border-radius: 0.5em;
+  background: linear-gradient(to bottom, #ff5b52da 0%, #20c7ffe4 100%);
+  padding: 0.15em;
+}
+
+.tryfree {
+  background-color: $generalColor;
+  color: white;
+  width: 12em;
+  height: 2.3em;
+  border-radius: 0.2em;
+  &:hover {
+    filter: contrast(1.8);
+  }
+}
+
+.firstAdvantage {
+  margin-top: 5em !important;
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+.secondAdvantage {
+  position: relative;
+  margin-top: 7em !important;
+  color: $generalColor;
+  .buttom {
+    margin-top: 7em !important;
+  }
+  .feelmusic img {
+    width: 35em;
+    max-width: 35em;
+    max-height: 23em;
+    border-radius: 1em;
+  }
+  .tastemusic img {
+    margin-top: 3em;
+    width: 30em;
+    max-width: 30em;
+    height: 14em;
+    border-radius: 1em;
+  }
+  .child {
+    position: absolute;
+    top: 22em;
+    left: 63%;
+    z-index: -1;
+  }
+  .title {
+    font-weight: bold;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+#advantagePrimary {
+  margin-top: 8em !important;
+  color: $generalColor;
+  background-color: rgba(231, 231, 231, 0.932) !important;
+  height: 20em;
+
+  img {
+    max-width: 2em;
+    height: 2em;
+  }
+}
+.title {
+  font-weight: bold;
+}
+#opinions {
+  margin-top: 8em;
+  .opinionsText1 {
+    border: 0.2em solid rgba(224, 223, 223, 0.932);
+    border-radius: 1em;
+    height: 12em;
+    box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  .opinionsText2 {
+    border: 0.2em solid rgba(224, 223, 223, 0.932);
+    border-radius: 1em;
+    height: 15em;
+    box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  img {
+    width: 7em;
+    height: 3em;
+    border-radius: 4em;
+  }
+  .verificated img {
+    width: 2em;
+    height: 2em;
+    align-content: left;
+  }
+  .hour {
+    color: rgba(133, 131, 131, 0.988);
+    font-size: 0.8em;
+  }
+}
+@media (max-width: 1000px) {
+  .container {
+    margin-top: -2em !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .imgHeader img {
+      margin-top: 2em !important;
+      height: 17em;
+      max-width: 30em;
+      margin: auto;
+    }
+  }
+  .firstAdvantage {
+    margin-top: 0 !important;
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    img {
+      max-width: 20%;
+      height: auto;
+    }
+  }
+  .secondAdvantage {
+    display: flex;
+    margin-top: 1em !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .buttom {
+      margin-top: 1.2em !important;
+    }
+  }
+  img {
+    margin: auto;
+  }
+  .child {
+    position: relative !important;
+    top: -2em !important;
+    left: 0 !important;
+  }
+
+  .col-lg-5,
+  .col-lg-7 {
+    width: 100% !important;
+  }
+  #advantagePrimary {
+    height: auto;
+    padding: 2em;
+  }
+  #opinions {
+    width: 90%;
+    margin-top: 2em !important;
+    .opinionsText1, .opinionsText2{
+      height: auto;
+    }
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .imgHeader img {
+      margin-top: 1em;
+      margin-left: 3em !important;
+      height: 25em;
+      max-width: 39em;
+    }
+  }
+  .firstAdvantage {
+    margin-top: 0 !important;
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .secondAdvantage {
+    margin-top: 1em !important;
+  }
+  .secondAdvantage .buttom {
+    margin-top: 2em !important;
+  }
+  .child {
+    position: relative !important;
+    top: -3em !important;
+    left: 0 !important;
+  }
+  .imgHeader img {
+    margin: 0 !important;
+  }
+  .col-lg-5,
+  .col-lg-7 {
+    width: 100% !important;
+  }
+  .child {
+    position: relative !important;
+  }
+  .secondAdvantage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .col-lg-5,
+    .col-lg-6 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: auto;
+    }
+  }
+}
