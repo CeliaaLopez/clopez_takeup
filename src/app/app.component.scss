@@ -125,7 +125,7 @@ $generalColor: rgb(76, 76, 76);
   .opinionsText2 {
     border: 0.2em solid rgba(224, 223, 223, 0.932);
     border-radius: 1em;
-    height: 15em;
+    height: 14em;
     box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.1);
   }
   img {
@@ -143,7 +143,101 @@ $generalColor: rgb(76, 76, 76);
     font-size: 0.8em;
   }
 }
+#plans {
+  margin-top: 8em;
+  background-color: rgba(231, 231, 231, 0.932);
+  height: auto;
+  button {
+    width: 8em;
+    height: 2.5em;
+  }
+  .year img {
+    width: 7em;
+    height: 2.5em !important;
+  }
+  img.mx-4 {
+    margin-top: -0.8em;
+  }
+
+  .prices {
+    position: relative;
+    background-color: rgb(253, 253, 253) !important;
+    min-height: 29em;
+    border-radius: 1.5em;
+  }
+  .prices button {
+    position: absolute;
+    bottom: 1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+  }
+  .prices img {
+    width: 4em;
+    height: 4em;
+    margin-top: -2.4em;
+    margin-right: -0.5em;
+  }
+  .fontBig {
+    font-size: 4em;
+    color: black;
+  }
+}
+#form {
+  margin-top: 8em;
+}
+#form form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 20%;
+  gap: 1em;
+  input {
+    height: 2.5em;
+  }
+  button {
+    height: 2.5em;
+  }
+}
+
+footer{
+   background-color: rgba(231, 231, 231, 0.932);
+   height: auto;
+}
+
+.socialmedia {
+  padding-top: 3em;
+  margin-top: 8em;
+  display: flex;
+  justify-content: center;
+  height: auto;
+}
+
+.circle {
+  background-color: #dedededa; /* Color de fondo del círculo */
+  width: 3em;
+  height: 3em;
+  border-radius: 50%; /* Hace que el div sea un círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0 0.4em;
+}
+.direction{
+  padding-bottom: 3em;
+}
+.circle img {
+  width: 1.5em;
+  height: 1.5em;
+}
+
 @media (max-width: 1000px) {
+  .prices {
+    margin-bottom: 2em;
+  }
+  #form form {
+    max-width: 50%;
+  }
   .container {
     margin-top: -2em !important;
     display: flex;
@@ -200,7 +294,8 @@ $generalColor: rgb(76, 76, 76);
   #opinions {
     width: 90%;
     margin-top: 2em !important;
-    .opinionsText1, .opinionsText2{
+    .opinionsText1,
+    .opinionsText2 {
       height: auto;
     }
   }
