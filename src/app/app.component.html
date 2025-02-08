@@ -1,3 +1,124 @@
-<app-nav></app-nav>
-<app-header></app-header>
-<app-advantages></app-advantages>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+  <div class="container-fluid mt-2">
+    <a class="navbar-brand logo ms-5" href="#inicio">
+      <img src="/assets/hamburguesa.png" alt="logo tienda apple" class="navbar-icon" />
+    </a>
+    <button class="navbar-toggler mx-2 btn-navbar" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse ms-auto text-center" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto d-flex align-items-center">
+        <a class="nav-link border-end px-4" href="#">Home</a>
+        <a class="nav-link border-end px-4" href="#">Shop</a>
+        <form class="container-fluid mt-1 ">
+          <button type="button" class="btn btn-secondary mx-2 ps-1">
+            <img class="mb-1 mx-1" src="assets/carrito.png" alt="imagen carrito de la compra"> Tu Carrito
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid border-bottom">
+  <section id="lateralProducts">
+    <div class="row ms-2">
+      <div class="col-md-2 p-0 border-end">
+        <div class="d-flex flex-column columnProduct">
+          <button type="button" class="btn btn-secondary w-50 ms-1 mb-3 mt-4" (click)="filterByPrice()">Menos de 15€</button>
+          <button type="button" class="btn btn-secondary w-50 ms-1 mb-4" (click)="resetFilter()">Reset Filter</button>
+
+          <h4 class="ms-1 mb-4">Products</h4>
+          <div *ngFor="let product of filteredProducts; let index = index">
+            <div (click)="selectProduct(index)"
+              class="d-flex justify-content-between align-items-center p-1 product-item">
+              <span class="fw-bold">{{ product.product }}</span>
+              <span class="mx-4 p-0">&gt;</span>
+            </div>
+            <hr class="mx-4 ms-1">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 ps-0 border-bottom">
+        <div *ngIf="selectedProduct">
+          <div class="imagenBurger">
+            <img src="assets/{{selectedProduct.product}}.png" alt="imagen de la hamburguesa {{selectedProduct.product}}"
+              class="w-100 border-bottom">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 mt-5 ps-3 px-5 border-bottom">
+        <div *ngIf="selectedProduct">
+          <h1>{{ selectedProduct.product }}</h1>
+          <div class="pb-4 mt-4 border-bottom">
+            <img src="assets/{{selectedProduct.rating}}.png" class="rating mb-1">
+            <span class="ms-3">{{selectedProduct.reviews.length}} Opiniones</span>
+          </div>
+          <p class="border-bottom pt-4 pb-4 fs-2">{{ selectedProduct.price }} {{ selectedProduct.currency }}</p>
+          <p class="w-75 pb-4 pt-3">{{ selectedProduct.description }}</p>
+          <p class="border-bottom w-25"></p>
+          <button type="button" class="btn btn-secondary mt-2 mb-4"
+            (click)="deleteProduct(products.indexOf(selectedProduct))">
+            Eliminar producto
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row ms-2">
+      <div class="col-md-2 p-0 border-end">
+      </div>
+      <div class="col-md-10 mt-5 p-0">
+        <h2 class="text-center mb-4">Productos similares</h2>
+        <div *ngIf="selectedProduct?.similarProducts?.length === 0 || selectedProduct?.similarProducts === undefined"
+          class="text-center">
+          <p>No hay productos similares</p>
+        </div>
+        <div class="similar border-bottom d-flex">
+          <div *ngFor="let similar of selectedProduct?.similarProducts" class="col-md-5 p-4 mb-3">
+            <div class="d-flex justify-content-center">
+              <img src="assets/{{similar.product}}.png" alt="imagen de la hamburguesa {{similar.product}}">
+              <div class="flex-column ms-4">
+                <h3 class="ms-1 mt-2">{{ similar.product }}</h3>
+                <div class="similarRating">
+                  <img src="assets/{{similar.rating}}.png">
+                </div>
+                <p class="mt-3 ms-1">{{ similar.price }} {{ similar.currency }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row ms-2">
+      <div class="col-md-2 p-0 border-end">
+      </div>
+      <div class="col-md-10 mt-5 p-0">
+        <h2 class="mb-4 ms-5">Reviews</h2>
+        <div *ngIf="selectedProduct?.similarProducts?.length === 0 || selectedProduct?.similarProducts === undefined">
+          <p class="ms-5">No hay comentarios</p>
+        </div>
+        <div class="review border-bottom">
+          <div *ngFor="let review of selectedProduct?.reviews" class="col-md-10 mt-5 p-4 border-bottom">
+            <div class="row">
+              <div class="col-md-4 d-flex align-items-start">
+                <img src="assets/usuario.png" alt="Imagen del usuario" class="me-3">
+                <div>
+                  <h3 class="mt-2">{{ review.name }}</h3>
+                  <p class="text-muted">{{ review.date }}</p>
+                  <div class="reviewRating">
+                    <img class="mb-2" src="assets/{{review.rating}}.png">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8 d-flex mt-3">
+                <p class="text-end m-0">{{ review.opinion }}</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</div>
