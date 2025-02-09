@@ -67,8 +67,7 @@ export class AppComponent {
       rating: 5,
       description:
         'La Golden Glaze: doble smash con mucho queso americano, bacon bits y un huevo frito entre dos donuts glaseados.',
-      reviews: [
-      ],
+      reviews: [],
     },
     {
       product: 'Hat Trick',
@@ -95,7 +94,7 @@ export class AppComponent {
   ];
 
   defaultProduct = {
-    product: '',
+    product: 'No disponemos de productos en stock',
     price: 0,
     currency: '',
     rating: 0,
@@ -106,16 +105,21 @@ export class AppComponent {
 
   selectedProduct = this.products[0];
 
+  filteredProducts = [...this.products];
+
   selectProduct(index: number) {
     this.selectedProduct = this.filteredProducts[index];
   }
 
-  //copia del original
-  filteredProducts = [...this.products];
-
   filterByPrice() {
     this.filteredProducts = this.products.filter(
       (product) => product.price < 15
+    );
+  }
+
+  filterByReview() {
+    this.filteredProducts = this.products.filter(
+      (product) => product.reviews.length !== 0
     );
   }
 
@@ -130,8 +134,12 @@ export class AppComponent {
     this.filteredProducts.splice(index, 1);
 
     if (this.selectedProduct === productToDelete) {
-      this.selectedProduct =this.products.length > 0 ? this.products[0] : this.defaultProduct;
-      this.selectedProduct = this.filteredProducts.length > 0 ? this.filteredProducts[0] : this.defaultProduct;
+      this.selectedProduct =
+        this.products.length > 0 ? this.products[0] : this.defaultProduct;
+      this.selectedProduct =
+        this.filteredProducts.length > 0
+          ? this.filteredProducts[0]
+          : this.defaultProduct;
     }
   }
 }
