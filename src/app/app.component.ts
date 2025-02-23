@@ -1,19 +1,33 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductShowComponent } from './product-show/product-show.component';
+import { ProductsSimilarsComponent } from './products-similars/products-similars.component';
+import { ProductReviewsComponent } from './product-reviews/product-reviews.component';
+import { Product } from './models/product';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    NavbarComponent,
+    ProductsComponent,
+    ProductShowComponent,
+    ProductsSimilarsComponent,
+    ProductReviewsComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  products = [
+  products: Product[] = [
     {
       product: 'Bacon',
       price: 15.99,
       currency: '€',
       rating: 5,
+      favorite: false,
       description:
         'El auténtico best seller de esta casa. Picamos la carne en la plancha y la mezclamos con bacon, cebolla crunchy y queso americano. ¡Una vez que la pruebas no puedes dejar de pensar en ella!',
       similarProducts: [
@@ -44,6 +58,7 @@ export class AppComponent {
       price: 14.99,
       currency: '€',
       rating: 4,
+      favorite: false,
       description:
         'Una receta clásica con carne, queso americano, cebolla morada a la plancha, tomate, lechuga batavia, pepinillos y nuestras salsas especiales.',
       similarProducts: [
@@ -65,6 +80,7 @@ export class AppComponent {
       price: 20,
       currency: '€',
       rating: 5,
+      favorite: false,
       description:
         'La Golden Glaze: doble smash con mucho queso americano, bacon bits y un huevo frito entre dos donuts glaseados.',
       reviews: [],
@@ -74,6 +90,7 @@ export class AppComponent {
       price: 14.99,
       currency: '€',
       rating: 4,
+      favorite: false,
       description:
         'Tres carnes smash, queso americano, queso scamorza ahumado, cebolla morada a la plancha y nuestra salsa especial.',
       similarProducts: [
@@ -99,16 +116,32 @@ export class AppComponent {
     currency: '',
     rating: 0,
     description: '',
+    favorite: false,
     similarProducts: [],
     reviews: [],
   };
 
   selectedProduct = this.products[0];
-
   filteredProducts = [...this.products];
+  selectedProductIndex: number = 0;
+  background = '';
+  textColor = ''
+  color = '';
 
   selectProduct(index: number) {
+    this.selectedProductIndex = index;
     this.selectedProduct = this.filteredProducts[index];
+    this.updateBack();
+  }
+
+  updateBack() {
+    if (this.selectedProduct.favorite) {
+      this.background = 'dark';
+      this.textColor = 'white';
+    } else {
+      this.background = 'light';
+      this.textColor = 'dark';
+    }
   }
 
   filterByPrice() {
@@ -127,12 +160,10 @@ export class AppComponent {
     this.filteredProducts = [...this.products];
   }
 
-  //eliminar solo visualmente el producto
   deleteProduct(index: number) {
     const productToDelete = this.products[index];
     this.products.splice(index, 1);
     this.filteredProducts.splice(index, 1);
-
     if (this.selectedProduct === productToDelete) {
       this.selectedProduct =
         this.products.length > 0 ? this.products[0] : this.defaultProduct;
@@ -140,6 +171,19 @@ export class AppComponent {
         this.filteredProducts.length > 0
           ? this.filteredProducts[0]
           : this.defaultProduct;
+    }
+  }
+
+  productFavorite(index: number) {
+    const productFav = this.products[index];
+    if (productFav.favorite) {
+      this.background = 'light';
+      this.textColor = 'dark';
+      this.products[index].favorite = false;
+    } else {
+      this.background = 'dark';
+      this.textColor = 'white';
+      this.products[index].favorite = true;
     }
   }
 }
