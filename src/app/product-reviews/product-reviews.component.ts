@@ -9,4 +9,5 @@ import { Product } from '../models/product';
 })
 export class ProductReviewsComponent {
   @Input() selectedProduct?: Product;
+  @Input() ratingImage: string = '';
 }

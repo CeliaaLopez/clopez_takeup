@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 export class ProductsComponent {
   @Input() selectedProduct?: Product;
   @Input() selectedProductIndex?: number;
+  @Input() colorBottonReview?: string;
+  @Input() colorBottonPrice?: string;
   @Input() filteredProducts: Product[] = [];
   @Output() productSelected = new EventEmitter<number>();
   @Output() filterPrice = new EventEmitter<void>();

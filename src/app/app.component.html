@@ -6,6 +6,8 @@
         [selectedProduct]="selectedProduct"
         [filteredProducts]="filteredProducts"
         [selectedProductIndex]="selectedProductIndex"
+        [colorBottonReview] = "colorBottonReview"
+        [colorBottonPrice] = "colorBottonPrice"
         (productSelected)="selectProduct($event)"
         (filterPrice)="filterByPrice()"
         (filterReview)="filterByReview()"
@@ -16,8 +18,10 @@
       <app-product-show
         [selectedProduct]="selectedProduct"
         [selectedProductIndex]="selectedProductIndex"
-        (deleteProduct)="deleteProduct($event)"
+        [colorBottonDelete] = "colorBottonDelete"
+        [ratingImage]="getRatingImage(selectedProduct.rating)"
         (productFavorite)="productFavorite($event)"
+        (deleteProduct)="deleteProduct($event)"
       ></app-product-show>
     </div>
   </div>
@@ -26,6 +30,7 @@
     <div class="col-md-10 p-0 bg-{{background}} text-{{textColor}}">
       <app-products-similars
         [selectedProduct]="selectedProduct"
+        [ratingImage]="getRatingImage(selectedProduct.rating)"
       ></app-products-similars>
     </div>
   </div>
@@ -33,6 +38,7 @@
     <div class="col-md-2 p-0 border-end"></div>
     <div class="col-md-10 p-0 bg-{{background}} text-{{textColor}}">
       <app-product-reviews
+        [ratingImage]="getRatingImage(selectedProduct.rating)"
         [selectedProduct]="selectedProduct"
       ></app-product-reviews>
     </div>

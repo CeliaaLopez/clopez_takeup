@@ -11,8 +11,10 @@ import { CommonModule } from '@angular/common';
 export class ProductShowComponent {
   @Input() selectedProduct?: Product;
   @Input() selectedProductIndex?: number;
+  @Input() colorBottonDelete?: string;
   @Output() deleteProduct = new EventEmitter<number>();
   @Output() productFavorite = new EventEmitter<number>();
+  @Input() ratingImage: string = '';
 
   deleteProductSelected(index: number | undefined) {
     if (index !== undefined) {

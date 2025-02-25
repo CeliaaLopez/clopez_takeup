@@ -1,5 +1,5 @@
 <div class="row border-bottom mx-0">
-  <div class="col-md-4">
+  <div class="col-md-4 p-0">
     <div *ngIf="selectedProduct">
       <div class="imagenBurger">
         <img
@@ -26,7 +26,7 @@
 
       <div class="pb-4 mt-4 border-bottom">
         <img
-          src="assets/{{ selectedProduct.rating }}.png"
+          [src]="ratingImage"
           class="rating mb-1"
         />
         <span class="ms-3">{{ selectedProduct.reviews.length }} Opiniones</span>
@@ -39,7 +39,7 @@
 
       <button
         type="button"
-        class="btn btn-secondary mt-2 mb-4"
+        class="btn btn-{{colorBottonDelete}} mt-2 mb-4"
         (click)="deleteProductSelected(selectedProductIndex)"
       >
         Eliminar producto
