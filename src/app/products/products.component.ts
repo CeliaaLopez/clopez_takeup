@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../models/product';
 import { CommonModule } from '@angular/common';
 
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
   imports: [CommonModule],
+  standalone:true,
 })
 export class ProductsComponent {
   @Input() selectedProduct?: Product;
